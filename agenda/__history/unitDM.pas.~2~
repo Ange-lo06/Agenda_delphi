@@ -1,0 +1,35 @@
+unit unitDM;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DBXFirebird, Data.FMTBcd, Data.DB,
+  Data.SqlExpr;
+
+type
+  TDM = class(TDataModule)
+    SQLconexao: TSQLConnection;
+    TBcontatos: TSQLTable;
+    DScontatos: TDataSource;
+    TBcontatosID_CONTATO: TIntegerField;
+    TBcontatosNOME: TStringField;
+    TBcontatosCELULAR: TStringField;
+    TBcontatosDATA: TDateField;
+    TBcontatosOBSERVACAO: TStringField;
+    TBcontatosBLOQUEADO: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

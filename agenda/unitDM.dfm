@@ -1,0 +1,107 @@
+object DM: TDM
+  Height = 750
+  Width = 1000
+  PixelsPerInch = 120
+  object SQLconexao: TSQLConnection
+    ConnectionName = 'FBConnection'
+    DriverName = 'Firebird'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      
+        'Database=C:\Users\edyan\OneDrive\'#193'rea de Trabalho\Delphi\agenda\' +
+        'AGENDA.FDB'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'IsolationLevel=ReadCommitted'
+      'Trim Char=False')
+    Connected = True
+    Left = 88
+    Top = 88
+  end
+  object DScontatos: TDataSource
+    DataSet = DSetContatos
+    Left = 80
+    Top = 488
+  end
+  object Querycontatos: TSQLQuery
+    Active = True
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'select * from CONTATOS')
+    SQLConnection = SQLconexao
+    Left = 88
+    Top = 192
+    object QuerycontatosID_CONTATO: TIntegerField
+      FieldName = 'ID_CONTATO'
+      Required = True
+    end
+    object QuerycontatosNOME: TStringField
+      FieldName = 'NOME'
+      Size = 50
+    end
+    object QuerycontatosCELULAR: TStringField
+      FieldName = 'CELULAR'
+      Size = 16
+    end
+    object QuerycontatosDATA: TDateField
+      FieldName = 'DATA'
+    end
+    object QuerycontatosOBSERVACAO: TStringField
+      FieldName = 'OBSERVACAO'
+      Size = 1000
+    end
+    object QuerycontatosBLOQUEADO: TStringField
+      FieldName = 'BLOQUEADO'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object SPcontatos: TDataSetProvider
+    DataSet = Querycontatos
+    Left = 88
+    Top = 280
+  end
+  object DSetContatos: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'SPcontatos'
+    AfterInsert = DSetContatosAfterInsert
+    Left = 88
+    Top = 376
+    object DSetContatosID_CONTATO: TIntegerField
+      FieldName = 'ID_CONTATO'
+      Required = True
+    end
+    object DSetContatosNOME: TStringField
+      FieldName = 'NOME'
+      Size = 50
+    end
+    object DSetContatosCELULAR: TStringField
+      FieldName = 'CELULAR'
+      Size = 16
+    end
+    object DSetContatosDATA: TDateField
+      FieldName = 'DATA'
+    end
+    object DSetContatosOBSERVACAO: TStringField
+      FieldName = 'OBSERVACAO'
+      Size = 1000
+    end
+    object DSetContatosBLOQUEADO: TStringField
+      FieldName = 'BLOQUEADO'
+      FixedChar = True
+      Size = 1
+    end
+  end
+end

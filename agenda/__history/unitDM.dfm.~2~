@@ -1,0 +1,67 @@
+object DM: TDM
+  Height = 750
+  Width = 1000
+  PixelsPerInch = 120
+  object SQLconexao: TSQLConnection
+    ConnectionName = 'FBConnection'
+    DriverName = 'Firebird'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Firebird'
+      
+        'Database=C:\Users\edyan\OneDrive\'#193'rea de Trabalho\Delphi\agenda\' +
+        'AGENDA.FDB'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'IsolationLevel=ReadCommitted'
+      'Trim Char=False')
+    Connected = True
+    Left = 88
+    Top = 88
+  end
+  object TBcontatos: TSQLTable
+    Active = True
+    MaxBlobSize = -1
+    SQLConnection = SQLconexao
+    TableName = 'CONTATOS'
+    Left = 88
+    Top = 184
+    object TBcontatosID_CONTATO: TIntegerField
+      FieldName = 'ID_CONTATO'
+      Required = True
+    end
+    object TBcontatosNOME: TStringField
+      FieldName = 'NOME'
+      Size = 50
+    end
+    object TBcontatosCELULAR: TStringField
+      FieldName = 'CELULAR'
+      Size = 16
+    end
+    object TBcontatosDATA: TDateField
+      FieldName = 'DATA'
+    end
+    object TBcontatosOBSERVACAO: TStringField
+      FieldName = 'OBSERVACAO'
+      Size = 1000
+    end
+    object TBcontatosBLOQUEADO: TStringField
+      FieldName = 'BLOQUEADO'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object DScontatos: TDataSource
+    DataSet = TBcontatos
+    Left = 72
+    Top = 296
+  end
+end

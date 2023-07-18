@@ -1,0 +1,226 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Agenda de contatos'
+  ClientHeight = 700
+  ClientWidth = 918
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object Label1: TLabel
+    Left = 32
+    Top = 48
+    Width = 271
+    Height = 33
+    Caption = 'Agenda de Contatos'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 32
+    Top = 168
+    Width = 127
+    Height = 21
+    Caption = 'Nome do contato'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 32
+    Top = 248
+    Width = 51
+    Height = 21
+    Caption = 'Celular'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 30
+    Top = 397
+    Width = 95
+    Height = 21
+    Caption = 'Observa'#231#245'es'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 24
+    Top = 632
+    Width = 180
+    Height = 21
+    Caption = 'Data e hora do cadastro'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBText1: TDBText
+    Left = 32
+    Top = 675
+    Width = 257
+    Height = 17
+    DataField = 'DATA'
+    DataSource = DM.DScontatos
+  end
+  object Label6: TLabel
+    Left = 272
+    Top = 248
+    Width = 134
+    Height = 21
+    Caption = 'Codigo do contato'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 568
+    Top = 101
+    Width = 136
+    Height = 21
+    Caption = 'Busca de contatos'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBEdit1: TDBEdit
+    Left = 30
+    Top = 219
+    Width = 472
+    Height = 23
+    DataField = 'NOME'
+    DataSource = DM.DScontatos
+    TabOrder = 0
+  end
+  object DBEdit2: TDBEdit
+    Left = 32
+    Top = 296
+    Width = 201
+    Height = 23
+    DataField = 'CELULAR'
+    DataSource = DM.DScontatos
+    TabOrder = 1
+  end
+  object DBCheckBox1: TDBCheckBox
+    Left = 32
+    Top = 352
+    Width = 97
+    Height = 17
+    Caption = 'Bloqueado'
+    DataField = 'BLOQUEADO'
+    DataSource = DM.DScontatos
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+  end
+  object DBMemo1: TDBMemo
+    Left = 32
+    Top = 424
+    Width = 472
+    Height = 177
+    DataField = 'OBSERVACAO'
+    DataSource = DM.DScontatos
+    TabOrder = 3
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 32
+    Top = 112
+    Width = 470
+    Height = 25
+    DataSource = DM.DScontatos
+    TabOrder = 4
+  end
+  object DBGrid1: TDBGrid
+    Left = 568
+    Top = 168
+    Width = 320
+    Height = 433
+    DataSource = DM.DScontatos
+    TabOrder = 5
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'NOME'
+        Title.Caption = 'Contatos Cadastrados'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CELULAR'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DATA'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'OBSERVACAO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'BLOQUEADO'
+        Visible = True
+      end>
+  end
+  object DBEdit3: TDBEdit
+    Left = 272
+    Top = 296
+    Width = 153
+    Height = 23
+    DataField = 'ID_CONTATO'
+    DataSource = DM.DScontatos
+    TabOrder = 6
+  end
+  object txtBusca: TEdit
+    Left = 568
+    Top = 128
+    Width = 320
+    Height = 25
+    TabOrder = 7
+    OnChange = txtBuscaChange
+  end
+end
